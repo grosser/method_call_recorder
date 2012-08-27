@@ -8,7 +8,24 @@ Install
 Usage
 =====
 
-    CODE EXAMPLE
+    recorder = MethodCallRecorder.new
+
+    # nothing happens
+    recorder.foo
+    recorder.bar :abc
+    recorder.baz :xyz do |blob|
+      puts blob
+    end
+
+    puts recorder.recorded
+
+    # calls get made to subject
+    recorder.replay(subject)
+
+
+TODO
+====
+ - make it possible to record #recorded or #replay by using recorder.proxy for recording which inheroits from e.g. BlankObject
 
 Author
 ======
